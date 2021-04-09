@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> CODE4EXAMPLE </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        #vki{
+            transition: 1s all;
+        }
+
+    </style>
+</head>
+
+	<body>
+        <div class="container">
+            <h1>Codingal BMI Calculator</h1>
+            <form>
+                <div class="form-group">
+                  <label for="height">Please Enter your Height in Inches :</label>
+                  <input type="text" class="form-control" id="height" placeholder="Enter Height">
+                </div>
+                <div class="form-group">
+                  <label for="weight">Please Enter your weight in Pounds :</label>
+                  <input type="text" class="form-control" id="weight" placeholder="Enter Weight">
+                </div>
+              </form>
+              <div class="alert alert-primary" role="alert" id="bmi">
+                Body Mass Index
+            </div>
+          </div>
+
+    <script>
+
+        const height =document.querySelector("#height")
+        const weight =document.querySelector("#weight")
+        const vki =document.querySelector("#vki")
+
+        height.addEventListener('input',vkiHesapla);
+        weight.addEventListener('input',vkiHesapla);
+
+        function vkiHesapla()
+        {
+            h=height.value
+            w=weight.value
+            index = w/(h*h)* 703;
+            index=index.toFixed(2)
+
+            if (index < 18.5) {
+                bmi.innerHTML="underweight - BMI : " + index
+                bmi.setAttribute("class","alert alert-secondary")
+            } else if (index < 25) {
+                bmi.innerHTML="normal - BMI : "+ index
+                bmi.setAttribute("class","alert alert-success")
+            } else if (index < 30) {
+                bmi.innerHTML="overweight - BMI : " + index
+                bmi.setAttribute("class","alert alert-warning")
+            } else {
+                bmi.innerHTML="obese - BMI : " + index
+                bmi.setAttribute("class","alert alert-danger")
+            }
+        }
+    </script>
+</body>
+</html>
